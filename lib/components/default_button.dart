@@ -16,10 +16,10 @@ class DefaultButton extends StatelessWidget {
     return GestureDetector(
       onTap: onPress,
       child: Container(
-        margin: EdgeInsets.symmetric(
-          horizontal: getProportionateScreenWidth(10),
-        ),
-        width: double.infinity,
+        // margin: EdgeInsets.symmetric(
+        //   horizontal: getProportionateScreenWidth(10),
+        // ),
+        width: getProportionateScreenWidth(80),
         height: getProportionateScreenHeight(8),
         decoration: BoxDecoration(
             color: Colors.red,
