@@ -4,9 +4,19 @@ import '../../SizeConfig.dart';
 import '../../constants.dart';
 
 class NotifiContainer extends StatelessWidget {
+  final String text1, text2, supertext;
+
+  const NotifiContainer(
+      {Key key,
+      @required this.text1,
+      @required this.text2,
+      @required this.supertext})
+      : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Container(
+      width: SizeConfig.screenWidth * 0.65,
+      height: getProportionateScreenHeight(11),
       padding: EdgeInsets.only(
         left: getProportionateScreenWidth(10),
         top: getProportionateScreenWidth(5),
@@ -37,7 +47,7 @@ class NotifiContainer extends StatelessWidget {
       children: [
         Text.rich(
           TextSpan(
-            text: "Healthie",
+            text: text1,
             style: Theme.of(context)
                 .textTheme
                 .headline4
@@ -47,7 +57,7 @@ class NotifiContainer extends StatelessWidget {
                 child: Transform.translate(
                   offset: Offset(0, -7),
                   child: Text(
-                    "TM",
+                    supertext,
                     style: Theme.of(context).textTheme.headline4.copyWith(
                           color: gradientColour1,
                           fontSize: 8,
@@ -59,7 +69,7 @@ class NotifiContainer extends StatelessWidget {
           ),
         ),
         Text(
-          "\nYour weekly report is here!",
+          text2,
           style: Theme.of(context).textTheme.bodyText2.copyWith(
                 fontSize: 10,
                 color: nameColour,

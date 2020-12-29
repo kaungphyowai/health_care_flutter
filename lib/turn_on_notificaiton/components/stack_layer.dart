@@ -103,7 +103,10 @@ class StackLayer extends StatelessWidget {
           Positioned(
             right: 0,
             top: getProportionateScreenHeight(2),
-            child: NotifiContainer(),
+            child: NotifiContainer(
+                text1: "Healthie",
+                text2: "\nYour weekly report is here!",
+                supertext: "TM"),
           ),
           Positioned(
             left: 0,

@@ -53,6 +53,9 @@ Color nameColour = Color(0xff205072);
 Color tradeMarkColour = Color(0xff56C596);
 Color color2 = Color(0xff68B2A0);
 Color color4 = Color(0xffE0ECDE);
+Color errorColor = Color(0xffF75010);
+Color color1ter = Color(0xff47CACC);
+Color color2ter = Color(0xffCDB3D4);
 BoxShadow shadow1 = BoxShadow(
   color: Color(0xffffffff).withOpacity(21),
   blurRadius: 13,

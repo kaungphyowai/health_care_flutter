@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:health_care_flutter/components/default_button.dart';
 import 'package:health_care_flutter/constants.dart';
+import 'package:health_care_flutter/home/home_screen.dart';
 
 import '../../SizeConfig.dart';
+import 'custom_text_field.dart';
 
 class LoginBody extends StatelessWidget {
   @override
@@ -24,7 +27,7 @@ class LoginBody extends StatelessWidget {
                   ),
             ),
             SizedBox(
-              height: getProportionateScreenHeight(2),
+              height: getProportionateScreenHeight(3),
             ),
             Padding(
               padding: EdgeInsets.symmetric(
@@ -38,9 +41,29 @@ class LoginBody extends StatelessWidget {
                     ),
               ),
             ),
-            TextField(
-              decoration: InputDecoration(),
+            SizedBox(
+              height: SizeConfig.screenHeight * 0.05,
             ),
+            CustomTextField(
+              icon: Icons.email,
+              text: "Email",
+              obsuretext: false,
+            ),
+            SizedBox(
+              height: SizeConfig.screenHeight * 0.03,
+            ),
+            CustomTextField(
+              icon: Icons.visibility_off_outlined,
+              text: "Password",
+              obsuretext: true,
+            ),
+            SizedBox(
+              height: SizeConfig.screenHeight * 0.05,
+            ),
+            DefaultButton(
+                text: "LOG IN",
+                onPress: () =>
+                    Navigator.pushNamed(context, HomeScreen.routeName))
           ],
         ),
       ),
