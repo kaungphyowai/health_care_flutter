@@ -22,7 +22,10 @@ class SpecialistContainer extends StatelessWidget {
           Align(
             alignment: Alignment.centerRight,
             child: Container(
-              padding: EdgeInsets.only(left: getProportionateScreenWidth(10)),
+              padding: EdgeInsets.only(
+                left: getProportionateScreenWidth(6),
+                top: getProportionateScreenWidth(1),
+              ),
               height: getProportionateScreenHeight(10),
               width: SizeConfig.screenWidth * 0.6,
               decoration: BoxDecoration(
@@ -38,6 +41,7 @@ class SpecialistContainer extends StatelessWidget {
                     BorderRadius.circular(getProportionateScreenHeight(7) / 6),
               ),
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Column(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -85,16 +89,16 @@ class SpecialistContainer extends StatelessWidget {
                           ),
                         ],
                       ),
-                      CustomContainer(
-                        onTap: () {},
-                        borderwidth: 1,
-                        color: Colors.white,
-                        bordercolor: color2ter,
-                        textcolor: color2ter,
-                        text: "Book",
-                      )
                     ],
                   ),
+                  CustomContainer(
+                    onTap: () {},
+                    borderwidth: 1,
+                    color: Colors.white,
+                    bordercolor: color2ter,
+                    textcolor: color2ter,
+                    text: "Book",
+                  )
                 ],
               ),
             ),

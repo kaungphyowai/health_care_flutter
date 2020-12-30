@@ -16,11 +16,11 @@ class NotifiContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: SizeConfig.screenWidth * 0.65,
-      height: getProportionateScreenHeight(11),
+      height: getProportionateScreenHeight(9),
       padding: EdgeInsets.only(
         left: getProportionateScreenWidth(10),
-        top: getProportionateScreenWidth(5),
-        bottom: getProportionateScreenWidth(5),
+        top: getProportionateScreenWidth(3),
+        bottom: getProportionateScreenWidth(3),
         right: getProportionateScreenWidth(20),
       ),
       decoration: BoxDecoration(

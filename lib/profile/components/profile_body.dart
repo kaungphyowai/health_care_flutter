@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:health_care_flutter/SizeConfig.dart';
+import 'package:health_care_flutter/components/custom_container.dart';
+import 'package:health_care_flutter/components/default_button.dart';
 import 'package:health_care_flutter/components/online_user.dart';
 import 'package:health_care_flutter/constants.dart';
 import 'package:health_care_flutter/turn_on_notificaiton/components/logoContainer.dart';
@@ -36,13 +38,31 @@ class ProfileBody extends StatelessWidget {
               ),
         ),
         SizedBox(
-          height: getProportionateScreenHeight(5),
+          height: getProportionateScreenHeight(3),
         ),
         buildProfileStack(),
         SizedBox(
-          height: getProportionateScreenHeight(2),
+          height: 1,
         ),
         buildStatus(context),
+        SizedBox(
+          height: getProportionateScreenHeight(4),
+        ),
+        Text(
+          "Your X’Ray turned out to be very\nsuccessful. You are clean",
+          textAlign: TextAlign.center,
+          style: Theme.of(context).textTheme.bodyText1.copyWith(
+                color: color2,
+              ),
+        ),
+        SizedBox(
+          height: getProportionateScreenHeight(3),
+        ),
+        DefaultButton(text: "TELL YOUR FAMILY", onPress: () {}),
+        SizedBox(
+          height: getProportionateScreenHeight(2),
+        ),
+        Text("Not now")
       ],
     );
   }
@@ -50,7 +70,13 @@ class ProfileBody extends StatelessWidget {
   Container buildStatus(context) {
     return Container(
       margin: EdgeInsets.symmetric(
-        horizontal: getProportionateScreenWidth(10),
+        horizontal: getProportionateScreenWidth(12),
+      ),
+      padding: EdgeInsets.only(
+        right: getProportionateScreenWidth(5),
+        left: getProportionateScreenWidth(5),
+        top: getProportionateScreenHeight(3),
+        bottom: getProportionateScreenHeight(2),
       ),
       decoration: BoxDecoration(
           color: Colors.white,
@@ -63,30 +89,92 @@ class ProfileBody extends StatelessWidget {
           ],
           borderRadius:
               BorderRadius.circular(getProportionateScreenWidth(80) / 8)),
-      height: SizeConfig.screenHeight * 0.45,
+      height: SizeConfig.screenHeight * 0.4,
       width: double.infinity,
-      child: CustomPaint(
-        foregroundPainter: CirclePainter(),
-        child: Column(
-          children: [
-            SvgPicture.asset(
-              "assets/icons/lungs.svg",
-              height: getProportionateScreenHeight(5),
+      child: Column(
+        children: [
+          Expanded(
+            child: Container(
+              margin: EdgeInsets.symmetric(
+                horizontal: getProportionateScreenWidth(5),
+              ),
+              width: double.infinity,
+              child: CustomPaint(
+                foregroundPainter: CirclePainter(),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SvgPicture.asset(
+                      "assets/icons/lungs.svg",
+                      height: getProportionateScreenHeight(3),
+                    ),
+                    Text(
+                      "89%",
+                      style: Theme.of(context).textTheme.headline3.copyWith(
+                            color: color1ter,
+                          ),
+                    ),
+                    Text(
+                      "immune system",
+                      style: Theme.of(context).textTheme.subtitle1.copyWith(
+                            color: nameColour.withOpacity(0.5),
+                            fontSize: 5,
+                          ),
+                    )
+                  ],
+                ),
+              ),
             ),
-            Text(
-              "89%",
-              style: Theme.of(context).textTheme.headline3.copyWith(
-                    color: color1ter,
+          ),
+          SizedBox(
+            height: getProportionateScreenHeight(1),
+          ),
+          Divider(),
+          SizedBox(
+            height: getProportionateScreenHeight(1),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "You paid",
+                    style: Theme.of(context).textTheme.bodyText2.copyWith(
+                          color: nameColour.withOpacity(0.5),
+                        ),
                   ),
-            ),
-            Text(
-              "immune system",
-              style: Theme.of(context).textTheme.subtitle1.copyWith(
-                    color: nameColour.withOpacity(0.5),
+                  SizedBox(
+                    height: getProportionateScreenWidth(1),
                   ),
-            )
-          ],
-        ),
+                  Text(
+                    "\$987 USD",
+                    style: Theme.of(context).textTheme.headline4.copyWith(
+                          color: nameColour,
+                        ),
+                  ),
+                  SizedBox(
+                    height: getProportionateScreenWidth(1),
+                  ),
+                  Text(
+                    "Service Charge",
+                    style: Theme.of(context).textTheme.bodyText2.copyWith(
+                          color: nameColour.withOpacity(0.5),
+                        ),
+                  ),
+                ],
+              ),
+              CustomContainer(
+                  color: nameColour,
+                  text: "SEND TO WALLET",
+                  bordercolor: nameColour,
+                  textcolor: Colors.white,
+                  borderwidth: 0,
+                  onTap: () {})
+            ],
+          )
+        ],
       ),
     );
   }
@@ -94,7 +182,7 @@ class ProfileBody extends StatelessWidget {
   Container buildBackgroundImage() {
     return Container(
       width: SizeConfig.screenWidth,
-      height: SizeConfig.screenHeight * 0.7,
+      height: SizeConfig.screenHeight * 0.6,
       decoration: BoxDecoration(
           image: DecorationImage(
               fit: BoxFit.cover,
